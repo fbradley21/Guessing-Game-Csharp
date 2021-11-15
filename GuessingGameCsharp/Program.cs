@@ -8,15 +8,35 @@ namespace GuessingGameCsharp
         {
             string secretWord = "toyota";
             string guess = "";
+            int guessCount = 0;
+            int guessLimit = 3;
+            bool outOfGuesses = false;
 
 
-            while(guess != secretWord)
+            while (guess != secretWord && !outOfGuesses)
             {
-                Console.Write("Enter guess: ");
-                guess = Console.ReadLine();
+                if (guessCount < guessLimit)
+                {
+                    Console.Write("Enter guess: ");
+                    guess = Console.ReadLine();
+                    guessCount++;
+                }
+                else
+                {
+                    outOfGuesses = true;
+                }
+            }
+            if (outOfGuesses)
+            {
+                Console.Write("You Lose!");
             }
 
-            Console.Write("You Win!");
+            else
+            {
+                Console.Write("You Win!");
+            }
+
+      
 
 
             Console.ReadLine();
